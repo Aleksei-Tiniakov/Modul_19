@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Application</string>
+    <string name="watch_later" translatable="false">watch_later</string>
+    <string name="favorites" translatable="false">favorites</string>
+    <string name="selections" translatable="false">selections</string>
+    <string name="menu" translatable="false">menu</string>
+    <string name="settings" translatable="false">settings</string>
+    <string name="posters_presented">posters presented:
+        https://www.kinopoisk.ru/</string>
 </resources>

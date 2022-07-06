@@ -4,42 +4,148 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="#0D3449">
+
 
     <LinearLayout
         android:id="@+id/CenterCont"
         android:layout_width="300dp"
-        android:layout_height="430dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:background="@color/purple_500">
+        android:background="@drawable/shape">
+
+        <Button
+            android:id="@+id/button_favorites"
+            android:onClick="favoritesToast"
+            android:textSize="18sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/favorites"
+            android:background="?selectableItemBackgroundBorderless"/>
+
+        <Button
+            android:id="@+id/button_watch_later"
+            android:onClick="watchLaterToast"
+            android:textSize="18sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/watch_later"
+            android:background="?selectableItemBackgroundBorderless"/>
+
+        <Button
+            android:id="@+id/button_selections"
+            android:onClick="selectionsToast"
+            android:textSize="18sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/selections"
+            android:background="?selectableItemBackgroundBorderless"/>
+
+        <Button
+            android:id="@+id/button_menu"
+            android:onClick="menuToast"
+            android:textSize="18sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/menu"
+            android:background="?selectableItemBackgroundBorderless"/>
+
+        <Button
+            android:id="@+id/button_settings"
+            android:onClick="settingsToast"
+            android:textSize="18sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/settings"
+            android:background="?selectableItemBackgroundBorderless"/>
 
     </LinearLayout>
 
     <FrameLayout
         android:id="@+id/BottomCont"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="100dp"
+        android:layout_margin="10dp"
+        android:layout_marginBottom="16dp"
         android:background="@color/teal_200"
+        app:cardCornerRadius="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.473"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <FrameLayout
+    <LinearLayout
         android:id="@+id/TopCont"
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="100dp"
         android:background="@color/purple_200"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-    </FrameLayout>
+        <ImageView
+            android:id="@+id/The_Gentlemen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/the_gentlemen" />
+
+        <ImageView
+            android:id="@+id/Gravity_Falls"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/gravity_falls" />
+
+        <ImageView
+            android:id="@+id/The_Lion_King"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/lion_king" />
+
+        <ImageView
+            android:id="@+id/The_Shawshank_Redemption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/shawshank_redemption" />
+
+
+    </LinearLayout>
+
+    <TextView
+        android:textSize="15sp"
+        android:textColor="#FFFFFF"
+        android:id="@+id/textView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:autoLink="web"
+        android:gravity="center"
+        android:linksClickable="true"
+        android:text="@string/posters_presented"
+        android:shadowColor="@color/white"
+        android:shadowDx="3"
+        android:shadowDy="3"
+        android:shadowRadius="15"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TopCont" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
