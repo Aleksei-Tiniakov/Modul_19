@@ -5,83 +5,99 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="#0D3449">
+    android:background="@drawable/shape_top_bar">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+<!--        <com.google.android.material.appbar.MaterialToolbar-->
+
+<!--            android:id="@+id/topAppBar"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="?attr/actionBarSize"-->
+<!--            app:menu="@menu/top_app_bar"-->
+<!--            android:background="@drawable/shape_top_bar"-->
+<!--            app:titleTextColor="#FFFFFF"/>-->
+
+
+<!--    </com.google.android.material.appbar.AppBarLayout>-->
 
 
     <LinearLayout
+        android:visibility="invisible"
         android:id="@+id/CenterCont"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
+        android:background="@drawable/shape"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@drawable/shape">
+        app:layout_constraintTop_toBottomOf="@+id/TopCont">
 
         <Button
             android:id="@+id/button_favorites"
-            android:onClick="favoritesToast"
-            android:textSize="18sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="?selectableItemBackgroundBorderless"
+            android:onClick="favoritesToast"
             android:text="@string/favorites"
-            android:background="?selectableItemBackgroundBorderless"/>
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/button_watch_later"
-            android:onClick="watchLaterToast"
-            android:textSize="18sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="?selectableItemBackgroundBorderless"
+            android:onClick="watchLaterToast"
             android:text="@string/watch_later"
-            android:background="?selectableItemBackgroundBorderless"/>
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/button_selections"
-            android:onClick="selectionsToast"
-            android:textSize="18sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="?selectableItemBackgroundBorderless"
+            android:onClick="selectionsToast"
             android:text="@string/selections"
-            android:background="?selectableItemBackgroundBorderless"/>
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/button_menu"
-            android:onClick="menuToast"
-            android:textSize="18sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="?selectableItemBackgroundBorderless"
+            android:onClick="menuToast"
             android:text="@string/menu"
-            android:background="?selectableItemBackgroundBorderless"/>
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/button_settings"
-            android:onClick="settingsToast"
-            android:textSize="18sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="?selectableItemBackgroundBorderless"
+            android:onClick="settingsToast"
             android:text="@string/settings"
-            android:background="?selectableItemBackgroundBorderless"/>
+            android:textSize="18sp" />
 
     </LinearLayout>
 
-    <FrameLayout
-        android:id="@+id/BottomCont"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_margin="10dp"
-        android:layout_marginBottom="16dp"
-        android:background="@color/teal_200"
-        app:cardCornerRadius="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.473"
-        app:layout_constraintStart_toStartOf="parent" />
+<!--    <FrameLayout-->
+<!--        android:id="@+id/BottomCont"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="80dp"-->
+<!--        android:background="@color/teal_200"-->
+<!--        app:cardCornerRadius="15dp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.473"-->
+<!--        app:layout_constraintStart_toStartOf="parent" />-->
 
     <LinearLayout
         android:id="@+id/TopCont"
-        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:background="@color/purple_200"
@@ -89,7 +105,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout">
 
         <ImageView
             android:id="@+id/The_Gentlemen"
@@ -145,6 +161,17 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TopCont" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape"
+        app:itemTextColor="@android:color/white"
+        app:itemIconTint="@android:color/white"
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:menu="@menu/bottom_bar" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,4 +8,6 @@
     <string name="watch_later" translatable="false">Посмотреть позже</string>
     <string name="posters_presented">Постеры предоставлены:
     https://www.kinopoisk.ru</string>
+    <string name="menu_settings" translatable="false">Настройки</string>
+    <string name="search" translatable="false">Поиск</string>
 </resources>
