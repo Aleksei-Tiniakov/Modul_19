@@ -1,4 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+<!--    film_item-->
+    <dimen name="film_padding">8dp</dimen>
+    <dimen name="film_radius">10dp</dimen>
+    <dimen name="film_elevation">1dp</dimen>
 
+<!--    fragment_details-->
+    <dimen name="fragment_details_minHeight">10dp</dimen>
+    <dimen name="fragment_details_margin">16dp</dimen>
+    <dimen name="margin_small">8dp</dimen>
+
+<!--    fragment_home-->
+    <dimen name="margin_big">20dp</dimen>
+    <dimen name="text_size">16sp</dimen>
 </resources>

@@ -10,4 +10,10 @@
     https://www.kinopoisk.ru</string>
     <string name="menu_settings" translatable="false">Настройки</string>
     <string name="search" translatable="false">Поиск</string>
+    <string name="dialog_title" translatable="false">Окно оповещения</string>
+    <string name="dialog_text" translatable="false">Вы хотите зыкрыть приложение?</string>
+    <string name="dialog_NegativeButton" translatable="false">Нет</string>
+    <string name="dialog_PositiveButton" translatable="false">Да</string>
+    <string name="dialog_NeutralButton" translatable="false">Игнорировать</string>
+    <string name="dialog_cancelled" translatable="false">диалог отменён</string>
 </resources>

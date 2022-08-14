@@ -1,13 +1,24 @@
 <resources>
     <string name="app_name">Application</string>
-    <string name="watch_later" translatable="false">watch_later</string>
+    <string name="watch_later" translatable="false">watch later</string>
     <string name="favorites" translatable="false">favorites</string>
     <string name="selections" translatable="false">selections</string>
     <string name="menu" translatable="false">menu</string>
     <string name="settings" translatable="false">settings</string>
     <string name="posters_presented" translatable="false">posters presented:
         https://www.kinopoisk.ru/</string>
-    <string name="menu_settings" translatable="false"> menu_settings</string>
-    <string name="action_settings" translatable="false">action_settings</string>
+    <string name="menu_settings" translatable="false"> menu settings</string>
+    <string name="action_settings" translatable="false">action settings</string>
     <string name="search" translatable="false">Search</string>
+
+
+    <string name="dialog_title" translatable="false">Alert Dialog Title</string>
+    <string name="dialog_text" translatable="false">Would you like to exit?</string>
+    <string name="dialog_NegativeButton" translatable="false">No</string>
+    <string name="dialog_PositiveButton" translatable="false">Yes</string>
+    <string name="dialog_NeutralButton" translatable="false">Ignore</string>
+    <string name="dialog_cancelled" translatable="false">Dialog cancelled</string>
+
+    <string name="back_passed" translatable="false">Double tap for exit</string>
+
 </resources>

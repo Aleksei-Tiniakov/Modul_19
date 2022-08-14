@@ -5,13 +5,42 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import tiniakovdev.com.databinding.ActivityMainBinding
+
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+
+        supportFragmentManager
+            .beginTransaction()
+            .add(R.id.fragment_placeholder, HomeFragment())
+            .addToBackStack(null)
+            .commit()
+    }
+
+    fun launchDetailsFragment(film: Film) {
+        val bundle = Bundle()
+        bundle.putParcelable("film", film)
+
+        val fragment = DetailsFragment()
+        fragment.arguments = bundle
+
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.fragment_placeholder, fragment)
+            .addToBackStack(null)
+            .commit()
     }
 
     fun selections(item: MenuItem) {
@@ -49,33 +78,23 @@ class MainActivity : AppCompatActivity() {
         return true
     }
 
+    override fun onBackPressed() {
+        if (supportFragmentManager.backStackEntryCount > 1) {
+            super.onBackPressed()
+        } else {
+            AlertDialog.Builder(this, R.style.AlertDialog)
+                .setTitle(R.string.dialog_title)
+                .setIcon(R.drawable.ic_exit_to_app)
+                .setPositiveButton(R.string.dialog_PositiveButton) { _, _ ->
+                    finish()
+                }
+                .setNegativeButton(R.string.dialog_NegativeButton) { _, _ ->
 
-//
-//    fun action(view: View) {
-//        view.findViewById<Notification.Action>()
+                }
+                .setNeutralButton(R.string.dialog_NeutralButton) { _, _ ->
+
+                }
+                .show()
+        }
+    }
 }
-//    fun menuToast(view: View) {
-//        val toastMenu = Toast.makeText(this,"menu",Toast.LENGTH_SHORT)
-//        toastMenu.show()
-//    }
-//    fun favoritesToast(view: View) {
-//        val toastFavorites = Toast.makeText(this,"favorites", Toast.LENGTH_SHORT)
-//        toastFavorites.show()
-//    }
-//    fun watchLaterToast(view: View) {
-//        val toastWatchLater = Toast.makeText(this,"watch later", Toast.LENGTH_SHORT)
-//        toastWatchLater.show()
-//    }
-//    fun selectionsToast(view: View) {
-//        val toastSelection = Toast.makeText(this,"selections", Toast.LENGTH_SHORT)
-//        toastSelection.show()
-//    }
-//    fun settingsToast(view: View) {
-//        val toastSettings = Toast.makeText(this,"settings", Toast.LENGTH_SHORT)
-//        toastSettings.show()
-//    }
-
-
-
-
-
