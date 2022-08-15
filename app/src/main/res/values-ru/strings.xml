@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Application</string>
+    <string name="settings" translatable="false">Настройки</string>
+    <string name="menu" translatable="false">Меню</string>
+    <string name="selections" translatable="false">Подборки</string>
+    <string name="favorites" translatable="false">Избранное</string>
+    <string name="watch_later" translatable="false">Посмотреть позже</string>
+    <string name="posters_presented">Постеры предоставлены:
+    https://www.kinopoisk.ru</string>
+    <string name="menu_settings" translatable="false">Настройки</string>
+    <string name="search" translatable="false">Поиск</string>
+    <string name="dialog_title" translatable="false">Окно оповещения</string>
+    <string name="dialog_text" translatable="false">Вы хотите зыкрыть приложение?</string>
+    <string name="dialog_NegativeButton" translatable="false">Нет</string>
+    <string name="dialog_PositiveButton" translatable="false">Да</string>
+    <string name="dialog_NeutralButton" translatable="false">Игнорировать</string>
+    <string name="dialog_cancelled" translatable="false">диалог отменён</string>
+</resources>
