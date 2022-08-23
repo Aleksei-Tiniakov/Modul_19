@@ -1,6 +1,5 @@
 package tiniakovdev.com
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -21,6 +20,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
+        appNavigation()
 
         supportFragmentManager
             .beginTransaction()
@@ -43,25 +43,30 @@ class MainActivity : AppCompatActivity() {
             .commit()
     }
 
-    fun selections(item: MenuItem) {
-        val intent = Intent(this@MainActivity, Selections::class.java)
-        startActivity(intent)
+    private fun appNavigation() {
+        binding.bottomNavigation.setOnNavigationItemSelectedListener {
+            when (it.itemId) {
+                R.id.favorites -> {
+                    supportFragmentManager
+                        .beginTransaction()
+                        .replace(R.id.fragment_placeholder, FavoritesFragment())
+                        .addToBackStack(null)
+                        .commit()
+                    true
+                }
+                R.id.watch_later -> {
+                    Toast.makeText(this, R.string.watch_later, Toast.LENGTH_SHORT).show()
+                    true
+                }
+                R.id.selections -> {
+                    Toast.makeText(this, R.string.selections, Toast.LENGTH_SHORT).show()
+                    true
+                }
+                else -> false
+            }
+        }
     }
 
-    fun favorites(item: MenuItem) {
-        val intent = Intent(this@MainActivity, Favorites::class.java)
-        startActivity(intent)
-    }
-
-    fun watchLater(item: MenuItem) {
-        val intent = Intent(this@MainActivity, WatchLater::class.java)
-        startActivity(intent)
-    }
-
-    fun settings(item: MenuItem) {
-        val toastSettings = Toast.makeText(this, "settings", Toast.LENGTH_SHORT)
-        toastSettings.show()
-    }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
