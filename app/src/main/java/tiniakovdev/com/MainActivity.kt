@@ -6,19 +6,17 @@ import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import tiniakovdev.com.databinding.ActivityMainBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMainBinding
+//    private lateinit var mainBinding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+//        mainBinding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(R.layout.activity_main)
 
         appNavigation()
 
@@ -44,7 +42,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun appNavigation() {
-        binding.bottomNavigation.setOnNavigationItemSelectedListener {
+
+        val bottomNavigation = findViewById<BottomNavigationView>(R.id.bottom_navigation)
+
+        bottomNavigation.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.favorites -> {
                     supportFragmentManager
@@ -67,7 +68,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             android.R.id.home -> finish()
@@ -89,7 +89,7 @@ class MainActivity : AppCompatActivity() {
         } else {
             AlertDialog.Builder(this, R.style.AlertDialog)
                 .setTitle(R.string.dialog_title)
-                .setIcon(R.drawable.ic_exit_to_app)
+                .setIcon(R.drawable.ic_baseline_exit_to_app_24)
                 .setPositiveButton(R.string.dialog_PositiveButton) { _, _ ->
                     finish()
                 }
@@ -102,4 +102,5 @@ class MainActivity : AppCompatActivity() {
                 .show()
         }
     }
+
 }

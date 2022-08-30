@@ -20,7 +20,5 @@
     <string name="dialog_cancelled" translatable="false">Dialog cancelled</string>
 
     <string name="back_passed" translatable="false">Double tap for exit</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
