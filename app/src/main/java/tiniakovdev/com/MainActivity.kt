@@ -1,24 +1,19 @@
 package tiniakovdev.com
 
+import android.app.AlertDialog
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
-import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import tiniakovdev.com.databinding.ActivityMainBinding
+import androidx.fragment.app.Fragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMainBinding
-
+    //    private lateinit var mainBinding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
-
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+//        mainBinding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(R.layout.activity_main)
 
         appNavigation()
 
@@ -44,22 +39,32 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun appNavigation() {
-        binding.bottomNavigation.setOnNavigationItemSelectedListener {
+        val bottomNavigation = findViewById<BottomNavigationView>(R.id.bottom_navigation)
+
+        bottomNavigation.setOnItemSelectedListener {
             when (it.itemId) {
+                R.id.home -> {
+                    val tag = "home"
+                    val fragment = checkFragmentExistence(tag)
+                    changeFragment(fragment ?: HomeFragment(), tag)
+                    true
+                }
                 R.id.favorites -> {
-                    supportFragmentManager
-                        .beginTransaction()
-                        .replace(R.id.fragment_placeholder, FavoritesFragment())
-                        .addToBackStack(null)
-                        .commit()
+                    val tag = "favorites"
+                    val fragment = checkFragmentExistence(tag)
+                    changeFragment(fragment ?: FavoritesFragment(), tag)
                     true
                 }
                 R.id.watch_later -> {
-                    Toast.makeText(this, R.string.watch_later, Toast.LENGTH_SHORT).show()
+                    val tag = "watch_later"
+                    val fragment = checkFragmentExistence(tag)
+                    changeFragment(fragment ?: WatchLaterFragment(), tag)
                     true
                 }
                 R.id.selections -> {
-                    Toast.makeText(this, R.string.selections, Toast.LENGTH_SHORT).show()
+                    val tag = "selections"
+                    val fragment = checkFragmentExistence(tag)
+                    changeFragment(fragment ?: SelectionsFragment(), tag)
                     true
                 }
                 else -> false
@@ -67,20 +72,15 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun checkFragmentExistence(tag: String): Fragment? =
+        supportFragmentManager.findFragmentByTag(tag)
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            android.R.id.home -> finish()
-            R.id.settings -> {
-                Toast.makeText(this, "settings", Toast.LENGTH_SHORT).show()
-            }
-        }
-        return true
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.top_app_bar, menu)
-        return true
+    private fun changeFragment(fragment: Fragment, tag: String) {
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.fragment_placeholder, fragment, tag)
+            .addToBackStack(null)
+            .commit()
     }
 
     override fun onBackPressed() {
@@ -89,7 +89,7 @@ class MainActivity : AppCompatActivity() {
         } else {
             AlertDialog.Builder(this, R.style.AlertDialog)
                 .setTitle(R.string.dialog_title)
-                .setIcon(R.drawable.ic_exit_to_app)
+                .setIcon(R.drawable.ic_baseline_exit_to_app_24)
                 .setPositiveButton(R.string.dialog_PositiveButton) { _, _ ->
                     finish()
                 }

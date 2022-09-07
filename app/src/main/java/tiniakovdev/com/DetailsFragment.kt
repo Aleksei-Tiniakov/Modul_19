@@ -18,7 +18,7 @@ class DetailsFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentDetailsBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -30,10 +30,10 @@ class DetailsFragment : Fragment() {
 
         binding.detailsFabFavorite.setOnClickListener {
             if (!film.isInFavorites) {
-                binding.detailsFabFavorite.setImageResource(R.drawable.ic_favorite)
+                binding.detailsFabFavorite.setImageResource(R.drawable.ic_baseline_favorite_24)
                 film.isInFavorites = true
             } else {
-                binding.detailsFabFavorite.setImageResource(R.drawable.ic_favorite_border)
+                binding.detailsFabFavorite.setImageResource(R.drawable.ic_baseline_favorite_border_24)
                 film.isInFavorites = false
             }
         }
@@ -43,7 +43,7 @@ class DetailsFragment : Fragment() {
             intent.action = Intent.ACTION_SEND
             intent.putExtra(
                 Intent.EXTRA_TEXT,
-                "Check out this film:${film.title}\n\n${film.description}"
+                "Check out this film: ${film.title} \n\n ${film.description}"
             )
             intent.type = "text/plain"
             startActivity(Intent.createChooser(intent, "Share to:"))
@@ -51,14 +51,16 @@ class DetailsFragment : Fragment() {
     }
 
     private fun setFilmDetails() {
-        val film = arguments?.get("film") as Film
+
+        film = arguments?.get("film") as Film
+
         binding.detailsPoster.setImageResource(film.poster)
         binding.detailsToolbar.title = film.title
         binding.detailsDescription.text = film.description
 
         binding.detailsFabFavorite.setImageResource(
-            if (film.isInFavorites) R.drawable.ic_favorite
-            else R.drawable.ic_favorite_border
+            if (film.isInFavorites) R.drawable.ic_baseline_favorite_24
+            else R.drawable.ic_baseline_favorite_border_24
         )
     }
 }

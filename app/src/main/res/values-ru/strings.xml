@@ -16,4 +16,5 @@
     <string name="dialog_PositiveButton" translatable="false">Да</string>
     <string name="dialog_NeutralButton" translatable="false">Игнорировать</string>
     <string name="dialog_cancelled" translatable="false">диалог отменён</string>
+    <string name="home" translatable="false">Главная</string>
 </resources>

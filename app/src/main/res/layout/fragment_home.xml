@@ -1,95 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_fragment_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/shape_top_bar"
-    tools:context=".HomeFragment">
+    android:background="@drawable/shape"
+    android:visibility="invisible"
+    app:layoutDescription="@xml/fragment_home_scene2"
+    tools:context=".HomeFragment"
+    tools:visibility="visible">
 
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/search_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="@drawable/search_background"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/main_recycler"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_margin="@dimen/margin_big"
-        android:scrollbars="horizontal"
+        android:layout_margin="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintTop_toBottomOf="@+id/search_view"
         tools:listitem="@layout/film_item" />
 
-    <LinearLayout
-        android:id="@+id/TopCont"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:background="@color/purple_200"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:id="@+id/The_Gentlemen"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:scaleType="centerCrop"
-            app:srcCompat="@drawable/the_gentlemen" />
-
-        <ImageView
-            android:id="@+id/Gravity_Falls"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:scaleType="centerCrop"
-            app:srcCompat="@drawable/gravity_falls" />
-
-        <ImageView
-            android:id="@+id/The_Lion_King"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:scaleType="centerCrop"
-            app:srcCompat="@drawable/lion_king" />
-
-        <ImageView
-            android:id="@+id/The_Shawshank_Redemption"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:scaleType="centerCrop"
-            app:srcCompat="@drawable/shawshank_redemption" />
-
-
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:autoLink="web"
-        android:gravity="center"
-        android:linksClickable="true"
-        android:shadowColor="@color/white"
-        android:shadowDx="3"
-        android:shadowDy="3"
-        android:shadowRadius="15"
-        android:text="@string/posters_presented"
-        android:textColor="#FFFFFF"
-        android:textSize="@dimen/text_size"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TopCont" />
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.motion.widget.MotionLayout>
 
 
 
