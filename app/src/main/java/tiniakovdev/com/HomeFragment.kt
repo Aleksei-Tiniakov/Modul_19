@@ -118,10 +118,12 @@ class HomeFragment : Fragment() {
     ): View {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
 
         AnimationHelper.performFragmentCircularRevealAnimation(
             binding.homeFragmentRoot,
@@ -134,6 +136,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun initSearchView() {
+
         binding.searchView.setOnClickListener {
             binding.searchView.isIconified = false
         }
@@ -145,6 +148,7 @@ class HomeFragment : Fragment() {
             }
 
             override fun onQueryTextChange(newText: String): Boolean {
+
                 if (newText.isEmpty()) {
                     filmAdapter.addItems(filmDataBase)
                     return true
@@ -157,6 +161,8 @@ class HomeFragment : Fragment() {
                 return true
             }
         })
+        initRecycler()
+        filmAdapter.addItems(filmDataBase)
 
     }
 

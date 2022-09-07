@@ -9,7 +9,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
 
-    //    private lateinit var mainBinding: ActivityMainBinding
+//    private lateinit var mainBinding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 //        mainBinding = ActivityMainBinding.inflate(layoutInflater)

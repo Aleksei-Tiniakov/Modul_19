@@ -9,7 +9,7 @@ data class Film(
     val poster: Int,
     val description: String,
     var isInFavorites: Boolean = false
-    ):Parcelable
+):Parcelable
 
 
 

@@ -16,6 +16,9 @@
         <OnSwipe
             motion:touchAnchorId="@+id/search_view"
             motion:touchAnchorSide="bottom" />
+        <OnSwipe
+            motion:touchAnchorId="@+id/search_View"
+            motion:touchAnchorSide="bottom" />
     </Transition>
 
     <ConstraintSet android:id="@+id/start">
@@ -26,5 +29,15 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:id="@+id/search_view" />
+        <Constraint
+            android:id="@+id/search_View"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            motion:layout_constraintTop_toTopOf="parent" />
+        <Constraint
+            android:id="@+id/search_View"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            motion:layout_constraintTop_toTopOf="parent" />
     </ConstraintSet>
 </MotionScene>

@@ -2,17 +2,14 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-parcelize'
-//    id 'kotlin-android-extensions'  //synthetic
-
 }
-
-//apply plugin: 'kotlin-android-extensions'
-//androidExtensions {
-//    experimental = true
-//}
 
 android {
     compileSdk 32
+
+    buildFeatures {
+        viewBinding true
+    }
 
     defaultConfig {
         applicationId "tiniakovdev.com"
@@ -37,10 +34,6 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    buildFeatures {
-        viewBinding true
-    }
-
 }
 
 dependencies {
@@ -61,5 +54,4 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     implementation 'com.github.bumptech.glide:glide:4.11.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
-
 }

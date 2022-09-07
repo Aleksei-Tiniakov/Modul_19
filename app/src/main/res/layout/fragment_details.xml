@@ -20,7 +20,7 @@
             android:fitsSystemWindows="true"
             android:minHeight="60dp"
             app:collapsedTitleTextColor="@color/white"
-            app:contentScrim="?attr/colorPrimary"
+            app:contentScrim="@color/white"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             app:toolbarId="@+id/toolbar">
 

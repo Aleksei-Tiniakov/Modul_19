@@ -15,9 +15,7 @@ class DetailsFragment : Fragment() {
     private lateinit var film: Film
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         binding = FragmentDetailsBinding.inflate(inflater, container, false)
         return binding.root
@@ -30,11 +28,14 @@ class DetailsFragment : Fragment() {
 
         binding.detailsFabFavorite.setOnClickListener {
             if (!film.isInFavorites) {
+
                 binding.detailsFabFavorite.setImageResource(R.drawable.ic_baseline_favorite_24)
                 film.isInFavorites = true
             } else {
                 binding.detailsFabFavorite.setImageResource(R.drawable.ic_baseline_favorite_border_24)
-                film.isInFavorites = false
+                film.isInFavorites = true
+
+
             }
         }
 
@@ -51,6 +52,7 @@ class DetailsFragment : Fragment() {
     }
 
     private fun setFilmDetails() {
+
 
         film = arguments?.get("film") as Film
 
