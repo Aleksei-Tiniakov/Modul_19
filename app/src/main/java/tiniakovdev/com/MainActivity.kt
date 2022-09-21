@@ -4,17 +4,18 @@ import android.app.AlertDialog
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import tiniakovdev.com.databinding.ActivityMainBinding
 
 
 class MainActivity : AppCompatActivity() {
 
-//    private lateinit var mainBinding: ActivityMainBinding
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        mainBinding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
 
         appNavigation()
 
@@ -40,9 +41,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun appNavigation() {
-        val bottomNavigation = findViewById<BottomNavigationView>(R.id.bottom_navigation)
 
-        bottomNavigation.setOnItemSelectedListener {
+        binding.bottomNavigation.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.home -> {
                     val tag = "home"

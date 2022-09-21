@@ -40,12 +40,10 @@ class FavoritesFragment : Fragment() {
                         (requireActivity() as MainActivity).launchDetailsFragment(film)
                     }
                 })
-
             adapter = filmAdapter
             layoutManager = LinearLayoutManager(requireContext())
             val decorator = TopSpacingItemDecoration(8)
             addItemDecoration(decorator)
-
         }
         filmAdapter.addItems(favoriteList)
     }

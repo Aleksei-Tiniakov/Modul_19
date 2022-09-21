@@ -28,14 +28,11 @@ class DetailsFragment : Fragment() {
 
         binding.detailsFabFavorite.setOnClickListener {
             if (!film.isInFavorites) {
-
                 binding.detailsFabFavorite.setImageResource(R.drawable.ic_baseline_favorite_24)
                 film.isInFavorites = true
             } else {
                 binding.detailsFabFavorite.setImageResource(R.drawable.ic_baseline_favorite_border_24)
-                film.isInFavorites = true
-
-
+                film.isInFavorites = false
             }
         }
 
@@ -52,8 +49,6 @@ class DetailsFragment : Fragment() {
     }
 
     private fun setFilmDetails() {
-
-
         film = arguments?.get("film") as Film
 
         binding.detailsPoster.setImageResource(film.poster)

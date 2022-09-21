@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <style name="AlertDialog" parent="Theme.AppCompat.Dialog.Alert">
         <item name="android:background">#0F7281</item>
         <item name="android:textColor">@android:color/white</item>
     </style>
+
 </resources>

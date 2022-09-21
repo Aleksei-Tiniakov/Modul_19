@@ -12,6 +12,7 @@ class FilmViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private val title: TextView = itemView.findViewById(R.id.title)
     private val poster: ImageView = itemView.findViewById(R.id.poster)
     private val description: TextView = itemView.findViewById(R.id.description)
+    private val ratingDonut: RatingDonutView = itemView.findViewById(R.id.rating_donut)
 
 
     fun bind(film: Film) {
@@ -21,5 +22,7 @@ class FilmViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             .centerCrop()
             .into(poster)
         description.text = film.description
+
+        ratingDonut.setProgress((film.rating * 10).toInt())
     }
 }
