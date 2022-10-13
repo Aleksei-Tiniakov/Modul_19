@@ -1,10 +1,13 @@
-package tiniakovdev.com
+package tiniakovdev.com.view.rv_viewholders
 
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import tiniakovdev.com.R
+import tiniakovdev.com.domain.Film
+import tiniakovdev.com.view.customviews.RatingDonutView
 
 
 class FilmViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

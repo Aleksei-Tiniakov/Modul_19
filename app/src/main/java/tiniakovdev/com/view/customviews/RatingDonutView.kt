@@ -1,9 +1,10 @@
-package tiniakovdev.com
+package tiniakovdev.com.view.customviews
 
 import android.content.Context
 import android.graphics.*
 import android.util.AttributeSet
 import android.view.View
+import tiniakovdev.com.R
 
 class RatingDonutView @JvmOverloads constructor(
     context: Context, attributeSet: AttributeSet? = null

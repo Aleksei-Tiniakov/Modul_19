@@ -1,4 +1,4 @@
-package tiniakovdev.com
+package tiniakovdev.com.view.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,6 +7,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import tiniakovdev.com.databinding.FragmentFavoriteBinding
+import tiniakovdev.com.domain.Film
+import tiniakovdev.com.utils.AnimationHelper
+import tiniakovdev.com.view.MainActivity
+import tiniakovdev.com.view.rv_adapter.FilmListRecyclerAdapter
+import tiniakovdev.com.view.rv_adapter.TopSpacingItemDecoration
 
 
 class FavoritesFragment : Fragment() {

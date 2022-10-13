@@ -1,4 +1,4 @@
-package tiniakovdev.com
+package tiniakovdev.com.utils
 
 import android.app.Activity
 import android.view.View

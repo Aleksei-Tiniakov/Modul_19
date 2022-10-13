@@ -1,10 +1,13 @@
-package tiniakovdev.com
+package tiniakovdev.com.view
 
 import android.app.AlertDialog
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import tiniakovdev.com.R
 import tiniakovdev.com.databinding.ActivityMainBinding
+import tiniakovdev.com.domain.Film
+import tiniakovdev.com.view.fragments.*
 
 
 class MainActivity : AppCompatActivity() {

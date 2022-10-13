@@ -1,4 +1,4 @@
-package tiniakovdev.com
+package tiniakovdev.com.view.rv_adapter
 
 import android.content.res.Resources
 import android.graphics.Rect

@@ -1,4 +1,4 @@
-package tiniakovdev.com
+package tiniakovdev.com.domain
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
