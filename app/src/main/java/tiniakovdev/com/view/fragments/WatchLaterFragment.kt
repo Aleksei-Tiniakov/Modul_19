@@ -26,7 +26,7 @@ class WatchLaterFragment : Fragment() {
         AnimationHelper.performFragmentCircularRevealAnimation(
             binding.watchLaterFragmentRoot,
             requireActivity(),
-            2
+            3
         )
     }
 }

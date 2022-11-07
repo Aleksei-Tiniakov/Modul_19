@@ -6,19 +6,18 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import tiniakovdev.com.R
 import tiniakovdev.com.databinding.ActivityMainBinding
+
 import tiniakovdev.com.domain.Film
 import tiniakovdev.com.view.fragments.*
 
 
 class MainActivity : AppCompatActivity() {
-
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
 
         appNavigation()
 
@@ -27,6 +26,7 @@ class MainActivity : AppCompatActivity() {
             .add(R.id.fragment_placeholder, HomeFragment())
             .addToBackStack(null)
             .commit()
+
     }
 
     fun launchDetailsFragment(film: Film) {
@@ -107,3 +107,4 @@ class MainActivity : AppCompatActivity() {
         }
     }
 }
+

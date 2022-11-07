@@ -22,7 +22,6 @@ class HomeFragment : Fragment() {
     private val viewModel by lazy {
         ViewModelProvider.NewInstanceFactory().create(HomeFragmentViewModel::class.java)
     }
-
     private lateinit var filmAdapter: FilmListRecyclerAdapter
     private lateinit var binding: FragmentHomeBinding
 
@@ -48,7 +47,6 @@ class HomeFragment : Fragment() {
             requireActivity(),
             1
         )
-
         initSearchView()
         initRecycler()
 

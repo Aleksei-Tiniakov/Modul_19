@@ -6,7 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.bumptech.glide.Glide
 import tiniakovdev.com.R
+import tiniakovdev.com.data.ApiConstants
 import tiniakovdev.com.databinding.FragmentDetailsBinding
 import tiniakovdev.com.domain.Film
 
@@ -38,6 +40,7 @@ class DetailsFragment : Fragment() {
             }
         }
 
+
         binding.detailsFabShare.setOnClickListener {
             val intent = Intent()
             intent.action = Intent.ACTION_SEND
@@ -53,10 +56,12 @@ class DetailsFragment : Fragment() {
     private fun setFilmDetails() {
         film = arguments?.get("film") as Film
 
-        binding.detailsPoster.setImageResource(film.poster)
         binding.detailsToolbar.title = film.title
+        Glide.with(this)
+            .load(ApiConstants.IMAGE_URL + "w780" + film.poster)
+            .centerCrop()
+            .into(binding.detailsPoster)
         binding.detailsDescription.text = film.description
-
         binding.detailsFabFavorite.setImageResource(
             if (film.isInFavorites) R.drawable.ic_baseline_favorite_24
             else R.drawable.ic_baseline_favorite_border_24

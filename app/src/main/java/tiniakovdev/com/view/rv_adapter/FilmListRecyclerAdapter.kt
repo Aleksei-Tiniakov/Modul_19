@@ -4,9 +4,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import tiniakovdev.com.view.rv_viewholders.FilmViewHolder
 import tiniakovdev.com.R
 import tiniakovdev.com.domain.Film
+import tiniakovdev.com.view.rv_viewholders.FilmViewHolder
 
 class FilmListRecyclerAdapter(private val clickListener: OnItemClickListener) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {

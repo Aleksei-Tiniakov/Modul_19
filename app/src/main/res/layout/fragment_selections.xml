@@ -9,5 +9,4 @@
     tools:context=".view.fragments.SelectionsFragment"
     tools:visibility="visible">
 
-
 </FrameLayout>

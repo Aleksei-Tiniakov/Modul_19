@@ -1,18 +1,19 @@
 package tiniakovdev.com
 
 import android.app.Application
-import tiniakovdev.com.data.MainRepository
-import tiniakovdev.com.domain.Interactor
+import tiniakovdev.com.di.AppComponent
+import tiniakovdev.com.di.DaggerAppComponent
+
 
 class App : Application() {
-    lateinit var repository: MainRepository
-    lateinit var interactor: Interactor
+
+    lateinit var dagger: AppComponent
 
     override fun onCreate() {
         super.onCreate()
         instance = this
-        repository = MainRepository()
-        interactor = Interactor(repository)
+        dagger = DaggerAppComponent.create()
+
     }
 
     companion object {

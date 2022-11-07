@@ -35,7 +35,7 @@ class FavoritesFragment : Fragment() {
         AnimationHelper.performFragmentCircularRevealAnimation(
             binding.favoritesFragmentRoot,
             requireActivity(),
-            2
+            2,
         )
 
         binding.favoritesRecycler.apply {
