@@ -8,12 +8,12 @@ import tiniakovdev.com.R
 import tiniakovdev.com.domain.Film
 import tiniakovdev.com.view.rv_viewholders.FilmViewHolder
 
-class FilmListRecyclerAdapter(private val clickListener: OnItemClickListener) :
+class FilmListRecyclerAdapter(
+    private val clickListener: OnItemClickListener
+) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    private val items = mutableListOf<Film>()
-
-    override fun getItemCount() = items.size
+    val items = mutableListOf<Film>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return FilmViewHolder(
@@ -31,6 +31,8 @@ class FilmListRecyclerAdapter(private val clickListener: OnItemClickListener) :
             }
         }
     }
+
+    override fun getItemCount() = items.size
 
     fun addItems(list: List<Film>) {
         items.clear()

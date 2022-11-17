@@ -17,4 +17,9 @@
     <string name="dialog_NeutralButton" translatable="false">Игнорировать</string>
     <string name="dialog_cancelled" translatable="false">диалог отменён</string>
     <string name="home" translatable="false">Главная</string>
+    <string name="radio_group_header" translatable="false">Фильтр фильмов</string>
+    <string name="radio_button_popular" translatable="false">популярность</string>
+    <string name="radio_button_top_rated" translatable="false">рейтирг</string>
+    <string name="radio_button_upcoming" translatable="false">скоро выйдут</string>
+    <string name="radio_button_playing" translatable="false">в кинотеатрах</string>
 </resources>

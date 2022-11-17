@@ -14,9 +14,9 @@ import tiniakovdev.com.domain.Film
 
 
 class DetailsFragment : Fragment() {
-
     private lateinit var binding: FragmentDetailsBinding
     private lateinit var film: Film
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -39,7 +39,6 @@ class DetailsFragment : Fragment() {
                 film.isInFavorites = false
             }
         }
-
 
         binding.detailsFabShare.setOnClickListener {
             val intent = Intent()

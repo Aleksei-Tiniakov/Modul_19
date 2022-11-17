@@ -23,5 +23,12 @@
     <string name="back_passed" translatable="false">Double tap for exit</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+    <string name="radio_group_header" translatable="false">Selection on home screen</string>
+    <string name="menu_settings_title_text" translatable="false">menu_settings_title_text</string>
+    <string name="radio_button_popular" translatable="false">popular</string>
+    <string name="radio_button_top_rated" translatable="false">top rated</string>
+    <string name="radio_button_upcoming" translatable="false">upcoming</string>
+    <string name="radio_button_playing" translatable="false">playing</string>
+
 
 </resources>

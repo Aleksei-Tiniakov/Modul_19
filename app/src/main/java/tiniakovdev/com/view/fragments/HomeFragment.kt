@@ -5,7 +5,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import tiniakovdev.com.databinding.FragmentHomeBinding
@@ -39,6 +41,7 @@ class HomeFragment : Fragment() {
         return binding.root
     }
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -49,9 +52,19 @@ class HomeFragment : Fragment() {
         )
         initSearchView()
         initRecycler()
+        initPullToRefresh()
 
-        viewModel.filmsListLiveData.observe(viewLifecycleOwner) {
+        viewModel.filmsListLiveData.observe(viewLifecycleOwner, Observer {
             filmsDataBase = it
+            filmAdapter.addItems(it)
+        })
+    }
+
+    private fun initPullToRefresh() {
+        binding.pullToRefresh.setOnRefreshListener {
+            filmAdapter.items.clear()
+            viewModel.getFilms()
+            binding.pullToRefresh.isRefreshing = false
         }
     }
 
@@ -61,7 +74,7 @@ class HomeFragment : Fragment() {
         }
 
         binding.searchView.setOnQueryTextListener(object :
-            androidx.appcompat.widget.SearchView.OnQueryTextListener {
+            SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 return true
             }
@@ -79,8 +92,6 @@ class HomeFragment : Fragment() {
                 return true
             }
         })
-        initRecycler()
-        filmAdapter.addItems(filmsDataBase)
     }
 
     private fun initRecycler() {
@@ -97,6 +108,7 @@ class HomeFragment : Fragment() {
             addItemDecoration(decoration)
         }
     }
+
 }
 
 

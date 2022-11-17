@@ -22,5 +22,10 @@
         android:icon="@drawable/ic_baseline_video_library_24"
         android:title="@string/selections"
         app:showAsAction="withText" />
+    <item
+        android:id="@+id/settings"
+        android:icon="@drawable/ic_baseline_settings_24"
+        android:title="@string/settings"
+        app:showAsAction="withText"/>
 
 </menu>

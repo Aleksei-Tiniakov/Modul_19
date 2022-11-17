@@ -5,6 +5,7 @@ import tiniakovdev.com.di.modules.DatabaseModule
 import tiniakovdev.com.di.modules.DomainModule
 import tiniakovdev.com.di.modules.RemoteModule
 import tiniakovdev.com.viewmodul.HomeFragmentViewModel
+import tiniakovdev.com.viewmodul.SettingsFragmentViewModel
 import javax.inject.Singleton
 
 @Singleton
@@ -16,5 +17,7 @@ import javax.inject.Singleton
 )
 interface AppComponent {
     fun inject(homeFragmentViewModel: HomeFragmentViewModel)
+
+    fun inject(settingsFragmentViewModel: SettingsFragmentViewModel)
 
 }
