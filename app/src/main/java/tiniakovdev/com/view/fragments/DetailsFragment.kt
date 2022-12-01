@@ -9,8 +9,8 @@ import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import tiniakovdev.com.R
 import tiniakovdev.com.data.ApiConstants
+import tiniakovdev.com.data.entity.Film
 import tiniakovdev.com.databinding.FragmentDetailsBinding
-import tiniakovdev.com.domain.Film
 
 
 class DetailsFragment : Fragment() {

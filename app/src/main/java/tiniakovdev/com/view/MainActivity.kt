@@ -2,13 +2,15 @@ package tiniakovdev.com.view
 
 import android.app.AlertDialog
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.google.android.material.snackbar.Snackbar
 import tiniakovdev.com.R
+import tiniakovdev.com.data.entity.Film
 import tiniakovdev.com.databinding.ActivityMainBinding
-
-import tiniakovdev.com.domain.Film
 import tiniakovdev.com.view.fragments.*
+import tiniakovdev.com.viewmodul.HomeFragmentViewModel
 
 
 class MainActivity : AppCompatActivity() {
@@ -19,6 +21,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        val homeFragmentViewModel: HomeFragmentViewModel by viewModels()
+
+        homeFragmentViewModel.getLoadData().observe(this) {
+            Snackbar.make(binding.fragmentPlaceholder, "Loading error", Snackbar.LENGTH_SHORT).show()
+        }
 
         appNavigation()
 
@@ -27,7 +34,6 @@ class MainActivity : AppCompatActivity() {
             .add(R.id.fragment_placeholder, HomeFragment())
             .addToBackStack(null)
             .commit()
-
     }
 
     fun launchDetailsFragment(film: Film) {

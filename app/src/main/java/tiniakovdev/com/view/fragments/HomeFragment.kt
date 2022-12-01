@@ -6,12 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import tiniakovdev.com.data.entity.Film
 import tiniakovdev.com.databinding.FragmentHomeBinding
-import tiniakovdev.com.domain.Film
 import tiniakovdev.com.utils.AnimationHelper
 import tiniakovdev.com.view.MainActivity
 import tiniakovdev.com.view.rv_adapter.FilmListRecyclerAdapter
@@ -32,6 +32,10 @@ class HomeFragment : Fragment() {
             if (field == value) return
             field = value
             filmAdapter.addItems(field)
+
+            viewModel.showProgressBar.observe(viewLifecycleOwner) {
+                binding.progressBar.isVisible = it
+            }
         }
 
     override fun onCreateView(
@@ -54,10 +58,10 @@ class HomeFragment : Fragment() {
         initRecycler()
         initPullToRefresh()
 
-        viewModel.filmsListLiveData.observe(viewLifecycleOwner, Observer {
+        viewModel.filmsListLiveData.observe(viewLifecycleOwner) {
             filmsDataBase = it
             filmAdapter.addItems(it)
-        })
+        }
     }
 
     private fun initPullToRefresh() {
@@ -108,7 +112,6 @@ class HomeFragment : Fragment() {
             addItemDecoration(decoration)
         }
     }
-
 }
 
 

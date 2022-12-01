@@ -6,8 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import tiniakovdev.com.data.entity.Film
 import tiniakovdev.com.databinding.FragmentFavoriteBinding
-import tiniakovdev.com.domain.Film
 import tiniakovdev.com.utils.AnimationHelper
 import tiniakovdev.com.view.MainActivity
 import tiniakovdev.com.view.rv_adapter.FilmListRecyclerAdapter

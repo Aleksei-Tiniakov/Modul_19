@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import tiniakovdev.com.R
 import tiniakovdev.com.data.ApiConstants
-import tiniakovdev.com.domain.Film
+import tiniakovdev.com.data.entity.Film
 import tiniakovdev.com.view.customviews.RatingDonutView
 
 

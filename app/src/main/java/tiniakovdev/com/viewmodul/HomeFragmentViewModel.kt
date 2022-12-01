@@ -1,37 +1,48 @@
 package tiniakovdev.com.viewmodul
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import tiniakovdev.com.App
-import tiniakovdev.com.domain.Film
+import tiniakovdev.com.data.entity.Film
 import tiniakovdev.com.domain.Interactor
+import tiniakovdev.com.utils.SingleLiveEvent
 import javax.inject.Inject
 
 class HomeFragmentViewModel : ViewModel() {
-    val filmsListLiveData: MutableLiveData<List<Film>> = MutableLiveData()
+    val showProgressBar: MutableLiveData<Boolean> = MutableLiveData()
+    private val uploadData = SingleLiveEvent<List<Film>>()
+
+    fun getLoadData(): SingleLiveEvent<List<Film>> {
+        return uploadData
+    }
 
     @Inject
     lateinit var interactor: Interactor
+    val filmsListLiveData: LiveData<List<Film>>
 
     init {
         App.instance.dagger.inject(this)
+        filmsListLiveData = interactor.getFilmFromDB()
         getFilms()
     }
 
     fun getFilms() {
+        showProgressBar.postValue(true)
         interactor.getFilmsFromApi(1, object : ApiCallback {
-            override fun onSuccess(film: List<Film>) {
-                filmsListLiveData.postValue(film)
+            override fun onSuccess() {
+                showProgressBar.postValue(false)
             }
 
             override fun onFailure() {
-                filmsListLiveData.postValue(interactor.getFilmFromDB())
+                showProgressBar.postValue(false)
             }
         })
     }
 
     interface ApiCallback {
-        fun onSuccess(film: List<Film>)
+        fun onSuccess()
         fun onFailure()
     }
 }
+
